@@ -19,7 +19,8 @@ namespace spellCheck
         private string res = null;
         private int count=0;
 
-
+         // поля radonly нужно присваивать в отдельных методах, которые вызываются в конструкторе.
+         //при чтении из файлов предусмотреть перехват исключений
         readonly List<string> _dicList = new List<string>(File.ReadAllLines("dic1.txt"));
 
         public Form1()
@@ -30,6 +31,8 @@ namespace spellCheck
         private void button1_Click(object sender, EventArgs e)
         {
             text = richTextBox1.Text+" ";
+            //лучше разделить текст на слова и потом работать с каждым словом в отдельности 
+            //string[] words = text.Split(new string[] {"\r\n","\n"," "}, StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < text.Length; i++)
             {
                 if (Char.IsLetter(text[i]))
