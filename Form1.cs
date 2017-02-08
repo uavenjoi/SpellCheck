@@ -42,10 +42,11 @@ namespace spellCheck
 
                     if (!_dicList.Contains(word))
                     {
+
                         richTextBox1.Select(startIndex, i - startIndex);
                         richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, FontStyle.Underline);
                         richTextBox1.SelectionColor = Color.Red;
-
+                        count++;
                         label1.Text = $"найдено {count} ошибок";
                     }
                 }
